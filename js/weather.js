@@ -1,16 +1,63 @@
-const weather = document.querySelector("#weather span:first-child");
-const city = document.querySelector("#weather span:last-child");
-const API_KEY = "241051bf13976dd3ddf8b8d9f247255e";
+const weatherIcon = document.querySelector('#weather');
+const weather = document.querySelector('#weather span:first-child');
+const city = document.querySelector('#weather span:last-child');
+const API_KEY = '8a42e02e9e24f74ff87cb24b7d5dc7f9';
+const chosenImages = [
+  'atmosphere.png',
+  'clear.png',
+  'cloud.png',
+  'drizzle.png',
+  'rain.png',
+  'snow.png',
+  'thunderstorm.png',
+];
+
+function getWeatherIcon(weatherID) {
+  let chosenWheatherIcon;
+  switch (weatherID) {
+    case 'Atmosphere':
+      chosenWheatherIcon = chosenImages[1];
+      break;
+    case 'Clear':
+      chosenWheatherIcon = chosenImages[2];
+      break;
+    case 'Clouds':
+      chosenWheatherIcon = chosenImages[3];
+      break;
+    case 'Drizzle':
+      chosenWheatherIcon = chosenImages[4];
+      break;
+    case 'Rain':
+      chosenWheatherIcon = chosenImages[5];
+      break;
+    case 'Snow':
+      chosenWheatherIcon = chosenImages[6];
+      break;
+    case 'Thunderstorm':
+      chosenWheatherIcon = chosenImages[7];
+      break;
+  }
+  return `img/weather/${chosenWheatherIcon}`;
+}
 
 function onGeoOk(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
+
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${API_KEY}`;
+
   fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
+    .then(response => response.json())
+    .then(data => {
+      const weatherID = data.weather[0].main;
+      weather.innerText = `${weatherID} / ${data.main.temp}°C`;
       city.innerText = data.name;
-      weather.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+
+      const iconUrl = getWeatherIcon(weatherID);
+      const bgImage = document.createElement('img');
+      bgImage.src = iconUrl;
+      bgImage.style = 'width:50px; height:50px;';
+      weatherIcon.prepend(bgImage);
     });
 }
 function onGeoError() {
