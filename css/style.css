@@ -38,12 +38,6 @@ body {
   border-radius: 50px;
 }
 
-#weather {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .btn-grad {
   background-image: linear-gradient(
     to right,
@@ -61,9 +55,171 @@ body {
   box-shadow: 0 0 20px #eee;
   border-radius: 50px;
 }
-
 .btn-grad:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+}
+.pin {
+  width: 50px;
+  height: 50px;
+  background: rgba(53, 50, 48, 0.3);
+  border-radius: 50px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) translateY(-80%);
+}
+
+#greeting {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 0 40px;
+  background: rgba(53, 50, 48, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+  width: max-content;
+  height: 50px;
+  border-bottom-left-radius: 200px;
+  border-bottom-right-radius: 200px;
+  display: flex;
+  align-items: center;
+}
+#quote {
+  background: rgba(53, 50, 48, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  width: 100vw;
+  height: 40px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+#home-view {
+  display: grid;
+  grid-template-rows: repeat(3, minmax(100px, 130px));
+  grid-template-columns: repeat(5, minmax(100px, 1fr));
+  height: calc(100vh - 40px);
+  align-content: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+}
+#clock {
+  position: relative;
+  grid-row-start: 1;
+  grid-column-start: 1;
+  grid-row: span 2;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+div#watch {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  aspect-ratio: 1/1;
+  border-radius: 30px;
+  border: 8px solid rgba(53, 50, 48, 0.8);
+  box-shadow: 0 0 10px 2px #123;
+  background-color: rgba(249, 235, 222, 0.5);
+}
+div#hours,
+div#minutes {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 1px 1px #fff;
+  border-radius: 5px;
+  /* Required to fix the left corner of the ticker*/
+  -webkit-transform-origin: 0% 0%;
+}
+div#hours {
+  z-index: 10;
+  width: 50px;
+  height: 5px;
+}
+div#minutes {
+  z-index: 15;
+  width: 70px;
+  height: 5px;
+  background-color: rgba(53, 50, 48, 0.9);
+}
+#digital {
+  position: relative;
+  width: 130px;
+  color: rgba(53, 50, 48, 0.8);
+  text-align: center;
+  font-size: xx-large;
+}
+#weather {
+  position: relative;
+  grid-row: 2 / span 2;
+  grid-column: 2;
+  background-color: rgba(249, 235, 222, 0.3);
+  border: 1px solid rgba(249, 235, 222, 0.5);
+  border-radius: 25px;
+  padding: 30px 10px 10px 10px;
+  display: flex;
+  flex-direction: column;
+}
+#weather > span:nth-child(2),
+span:nth-child(3) {
+  text-align: center;
+  font-size: larger;
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+span:nth-child(4) {
+  text-align: center;
+}
+#todo {
+  position: relative;
+  grid-row: span 3;
+  grid-column: 4 / span 2;
+  background-color: rgba(249, 235, 222, 0.5);
+  border-radius: 25px;
+  padding: 30px 15px 15px 15px;
+}
+#todo > form > input {
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 15px;
+  border: 0;
+  background-color: rgba(249, 235, 222, 0);
+  border-bottom: 2px solid rgba(53, 50, 48, 0.7);
+}
+#todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  width: 100%;
+  height: 90%;
+  overflow-y: auto;
+}
+#todo-list::-webkit-scrollbar {
+  display: none;
+}
+#todo-list > li {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+}
+#todo-list > li::before {
+  content: '-';
+  margin-right: 10px;
 }

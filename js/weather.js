@@ -1,6 +1,6 @@
 const weatherIcon = document.querySelector('#weather');
-const weather = document.querySelector('#weather span:first-child');
-const city = document.querySelector('#weather span:last-child');
+const weather = document.querySelector('#weather span:nth-child(2)');
+const city = document.querySelector('#weather span:nth-child(3)');
 const API_KEY = '8a42e02e9e24f74ff87cb24b7d5dc7f9';
 const chosenImages = [
   'atmosphere.png',
@@ -56,7 +56,7 @@ export function onGeoOk(position) {
       const iconUrl = getWeatherIcon(weatherID);
       const bgImage = document.createElement('img');
       bgImage.src = iconUrl;
-      bgImage.style = 'width:50px; height:50px;';
+      bgImage.style = 'width:100%';
       weatherIcon.prepend(bgImage);
     });
 }
@@ -64,11 +64,3 @@ export function onGeoOk(position) {
 export function onGeoError() {
   alert("Can't find you. No weather for you.");
 }
-
-// navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
-
-// if (savedUsername === null) {
-//   console.log('유저네임 없음');
-// } else {
-
-// }

@@ -47,4 +47,4 @@ const verse = document.querySelector('#quote span:last-child');
 const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
 quote.innerText = todaysQuote.quote;
-verse.innerText = todaysQuote.verse;
+verse.innerText = `📖 ${todaysQuote.verse}`;
