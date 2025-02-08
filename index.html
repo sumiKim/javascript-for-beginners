@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Momentum App</title>
+  </head>
+  <body>
+    <form class="hidden" id="login-form">
+      <h3>What is your name?</h3>
+      <input required maxlength="15" type="text" placeholder="" />
+      <input class="btn-grad" type="submit" value="Log In" />
+    </form>
+    <h1 class="hidden" id="greeting"></h1>
+    <section class="hidden" id="home-view">
+      <div id="clock">
+        <div id="watch">
+          <div id="hours"></div>
+          <div id="minutes"></div>
+        </div>
+        <h2 id="digital">00:00:00</h2>
+      </div>
+      <div id="weather">
+        <p class="pin"></p>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="todo">
+        <p class="pin"></p>
+        <form id="todo-form">
+          <input
+            type="text"
+            placeholder="Write a To Do and Press Enter"
+            required
+          />
+        </form>
+        <ul id="todo-list"></ul>
+      </div>
+    </section>
+    <div class="hidden" id="quote">
+      <span></span>
+      <span></span>
+    </div>
+    <script type="module" src="js/greetings.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/todo.js"></script>
+    <script type="module" src="js/weather.js"></script>
+  </body>
+</html>
