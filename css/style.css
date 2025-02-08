@@ -2,12 +2,68 @@
   display: none;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 body {
   height: 100vh;
+  margin: 0;
+}
+
+#login-form {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 600px;
+  height: 100px;
+  text-align: center;
+}
+#login-form > h3 {
+  font-size: 50px;
+  color: #1e130c;
+}
+#login-form > input {
+  padding: 10px 15px;
+  border-radius: 50px;
 }
 
 #weather {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #1e130c 0%,
+    #9a8478 51%,
+    #1e130c 100%
+  );
+}
+.btn-grad {
+  padding: 10px 15px;
+  text-align: center;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 50px;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
 }

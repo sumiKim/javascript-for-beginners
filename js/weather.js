@@ -40,7 +40,7 @@ function getWeatherIcon(weatherID) {
   return `img/weather/${chosenWheatherIcon}`;
 }
 
-function onGeoOk(position) {
+export function onGeoOk(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
 
@@ -60,8 +60,15 @@ function onGeoOk(position) {
       weatherIcon.prepend(bgImage);
     });
 }
-function onGeoError() {
+
+export function onGeoError() {
   alert("Can't find you. No weather for you.");
 }
 
-navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+// navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
+
+// if (savedUsername === null) {
+//   console.log('유저네임 없음');
+// } else {
+
+// }
